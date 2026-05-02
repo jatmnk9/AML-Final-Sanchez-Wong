@@ -3,7 +3,6 @@
 ## Clasificación de Aceptabilidad de Vehículos mediante Redes Neuronales
 
 **Estudiante:** Jatziry Sanchez Wong
-**Programa:** TEC-VIII — Especialización en Big Data Analytics aplicada a los Negocios
 **Profesor:** Carlos Mariño PhD.
 **Fecha:** 02 de mayo del 2026
 
