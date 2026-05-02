@@ -1,85 +1,133 @@
-# Plantilla del Curso: Deep Learning
+# 🎓 Capstone Project — Advanced Machine Learning
 
-Este repositorio es una **plantilla** para el proyecto final del curso de *Advanced Machine Learning*.
-Cada estudiante debe crear su propio repositorio a partir de esta plantilla y trabajar únicamente en el notebook principal desde Google Colab.
+## Clasificación de Aceptabilidad de Vehículos mediante Redes Neuronales
 
----
-
-## Pasos para usar esta plantilla (OBLIGATORIO)
-
-### 1. Crear tu repositorio personal
-
-1. Ir a este repositorio plantilla
-2. Hacer clic en el botón verde **“Use this template”**
-3. Crear un nuevo repositorio con el nombre:
-
-   `AML-Final-Apellido-Nombre`
-
-Ejemplo: `AML-Final-Marino-C.`
+**Estudiante:** Jatziry Sanchez Wong
+**Programa:** TEC-VIII — Especialización en Big Data Analytics aplicada a los Negocios
+**Profesor:** Carlos Mariño PhD.
+**Fecha:** 02 de mayo del 2026
 
 ---
 
-### 2. Trabajar SOLO en el notebook desde Colab
+## 📋 Descripción del Proyecto
 
-1. En tu repositorio, entrar a la carpeta `notebooks/`
-2. Abrir el archivo: `final_project.ipynb`
-3. Hacer clic en **“Open in Colab”**
-4. Desarrollar todo tu proyecto dentro de este notebook
+Este proyecto aborda el problema de **clasificación automática de la aceptabilidad de vehículos** en el mercado de segunda mano, utilizando el [Car Evaluation Database](https://archive.ics.uci.edu/dataset/19/car+evaluation) del UCI Machine Learning Repository (Bohanec & Rajkovic, 1997).
 
-No es necesario usar comandos de git ni terminal.
+Se implementó una **red neuronal totalmente conectada (MLP)** con PyTorch, entrenada sobre representaciones ordinales de las variables categóricas. El modelo fue comparado con baselines clásicos (Regresión Logística y Random Forest).
 
----
+### Resultados Principales
 
-### 3. Guardar cambios directamente en GitHub
+| Modelo                  | Accuracy | Precision | Recall  | F1 Weighted |
+|-------------------------|----------|-----------|---------|-------------|
+| **Random Forest**       | 96.92%   | 97.07%    | 96.92%  | 96.89%      |
+| **MLP (Deep Learning)** | 96.15%   | 96.38%    | 96.15%  | 96.21%      |
+| **Regresión Logística** | 74.23%   | 78.98%    | 74.23%  | 75.60%      |
 
-Dentro de Colab:
-
-* Ir a **File → Save a copy in GitHub**
-* Seleccionar tu repositorio personal
-* Confirmar sobrescribir el notebook
-
-De esta forma, tu trabajo quedará guardado automáticamente en GitHub.
+> ✅ **Objetivo cumplido:** El modelo MLP supera el 95% de precisión en el conjunto de test.
 
 ---
 
-## Estructura del repositorio (NO modificar)
+## 📁 Estructura del Repositorio
 
-* `notebooks/` → Notebook principal del proyecto
-* `src/` → Código auxiliar (opcional)
-* `data/` → Solo instrucciones del dataset (no subir datos grandes)
-* `results/` → Resultados y métricas
-* `figures/` → Gráficos generados
-* `report/` → Reporte final (PDF o Markdown)
-
-Los estudiantes deben principalmente trabajar en:
-`notebooks/final_project.ipynb`
-
----
-
-## Reglas importantes
-
-* No subir datasets grandes o datos sensibles
-* El notebook debe poder ejecutarse en Colab
-* Incluir visualizaciones y evaluación del modelo
-* Mantener el código organizado y reproducible
-
----
-
-## Entrega final
-
-Cada estudiante deberá enviar:
-
-1. El enlace de su repositorio en GitHub
-2. El notebook final completamente ejecutable
-3. (Opcional) un tag final: `v1.0-final`
+```
+AML-Final-Sanchez-Wong/
+├── notebooks/
+│   └── final_project.ipynb    # Notebook principal del proyecto (ejecutable en Colab)
+├── data/
+│   └── README.md              # Instrucciones y descripción del dataset
+├── results/
+│   ├── final_results.json     # Métricas finales del modelo MLP
+│   ├── model_comparison.csv   # Comparación entre modelos
+│   ├── feature_importances.csv
+│   ├── car_evaluation_checkpoint.pth  # Pesos del modelo entrenado
+│   ├── ordinal_encoder.pkl    # Encoder serializado
+│   └── scaler.pkl             # Scaler serializado
+├── figures/
+│   ├── 01_target_distribution.png
+│   ├── 02_features_by_class.png
+│   └── ...                    # Visualizaciones generadas
+├── report/
+│   └── classification_report.txt  # Reporte de clasificación detallado
+├── src/                       # Código auxiliar (opcional)
+├── requirements.txt           # Dependencias del proyecto
+└── README.md                  # Este archivo
+```
 
 ---
 
-## Objetivo pedagógico
+## 🚀 Cómo Ejecutar
 
-Esta estructura busca que los estudiantes:
+### Opción 1: Google Colab (Recomendado)
 
-* Practiquen reproducibilidad en ML
-* Mantengan organización profesional del código
-* Usen GitHub como portafolio académico
-* Integren experimentación, evaluación y visualización en un único flujo reproducible
+1. Ir a la carpeta `notebooks/`
+2. Abrir `final_project.ipynb`
+3. Hacer clic en **"Open in Colab"**
+4. Ejecutar todas las celdas en orden
+
+> El notebook descarga automáticamente el dataset desde UCI ML Repository — no es necesario descargar datos manualmente.
+
+### Opción 2: Local
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/AML-Final-Sanchez-Wong.git
+cd AML-Final-Sanchez-Wong
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Abrir el notebook
+jupyter notebook notebooks/final_project.ipynb
+```
+
+---
+
+## 📊 Dataset
+
+- **Fuente:** [Car Evaluation — UCI ML Repository (ID=19)](https://archive.ics.uci.edu/dataset/19/car+evaluation)
+- **Instancias:** 1,728
+- **Features:** 6 atributos categóricos ordinales
+- **Clases:** 4 (unacc, acc, good, vgood)
+- **Desbalance:** Ratio máx/mín de 18.6:1
+
+> ⚠️ El dataset **no** se sube al repositorio. Se carga automáticamente con la librería `ucimlrepo`.
+
+Para más detalles, ver [`data/README.md`](data/README.md).
+
+---
+
+## 🧠 Arquitectura del Modelo
+
+**MLP (Perceptrón Multicapa)** implementado en PyTorch:
+
+```
+Input (6) → Dense(128) + ReLU + Dropout(0.3)
+          → Dense(64)  + ReLU + Dropout(0.3)
+          → Dense(32)  + ReLU + Dropout(0.3)
+          → Output(4)  + Softmax
+```
+
+**Hiperparámetros:**
+- Optimizador: Adam (lr = 0.001)
+- Batch size: 32
+- Épocas: 100
+- Semilla aleatoria: 42
+
+---
+
+## 📝 Reproducibilidad
+
+- ✅ Semilla aleatoria fija (`RANDOM_SEED = 42`)
+- ✅ Dataset descargado automáticamente desde UCI
+- ✅ Métricas exportadas a `results/`
+- ✅ Visualizaciones exportadas a `figures/`
+- ✅ Reporte de clasificación exportado a `report/`
+- ✅ Modelos y encoders serializados en `results/`
+
+---
+
+## 📚 Referencias
+
+- Bohanec, M. & Rajkovic, V. (1997). Car Evaluation. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/19/car+evaluation
+- PyTorch Documentation. https://pytorch.org/docs/
+- scikit-learn Documentation. https://scikit-learn.org/stable/
