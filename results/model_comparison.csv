@@ -1,0 +1,4 @@
+Modelo,Accuracy,Precision,Recall,F1-Score
+Random Forest,0.9692,0.9707,0.9692,0.9689
+MLP (Deep Learning),0.9615,0.9638,0.9615,0.9621
+Logistic Regression,0.7423,0.7898,0.7423,0.756

@@ -1,0 +1,17 @@
+Car Evaluation — Reporte de Clasificación
+==================================================
+Accuracy:  0.9615
+Precision: 0.9638
+Recall:    0.9615
+F1-Score:  0.9621
+
+              precision    recall  f1-score   support
+
+       unacc       0.99      0.97      0.98       182
+         acc       0.90      0.95      0.92        58
+        good       0.90      0.90      0.90        10
+       vgood       0.83      1.00      0.91        10
+
+    accuracy                           0.96       260
+   macro avg       0.91      0.95      0.93       260
+weighted avg       0.96      0.96      0.96       260
